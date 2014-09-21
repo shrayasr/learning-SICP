@@ -111,3 +111,60 @@ square
 
 (define + *)
 (+ 2 8)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Square root by newtons method ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Util functions ;; 
+
+;; Absolute value
+(define (abs x)
+  (if (< x 0)
+      (- x)
+      x))
+
+(abs -1)
+
+;; Square
+(define (square x)
+  (* x x))
+
+(square 2)
+
+;; Average
+(define (average x y)
+  (/ (+ x y) 2))
+
+(average 1 2)
+
+;; Core algo functions ;; 
+
+;; When is something good enough? 
+;;   when the absolute value of subtracting the square of that guess
+;;   and the number itself is lesser than, some epsilon (taken to be 0.001 here)
+(define (is-good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(is-good-enough? 1.4142 2)
+(is-good-enough? 1 2)
+
+;; Improve a guess
+;;   Take the average of x and x/g
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(improve 1 2)
+
+;; Try if something is good enough,
+;;   If not, improve it and try again
+(define (try guess x)
+  (if (is-good-enough? guess x)
+      guess
+      (try (improve guess x) x)))
+
+;; Square root itself
+(define (sqrt x)
+  (try 1 x))
+
+(sqrt 2)
