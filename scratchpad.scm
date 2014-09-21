@@ -108,3 +108,6 @@
 (square 2)
 square
 +
+
+(define + *)
+(+ 2 8)
