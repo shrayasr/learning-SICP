@@ -97,3 +97,6 @@
   (sum-of-squares large 2nd-large))
 
 (sum-of-squares-2-largest-nos 1 2 3)
+
+(define add +)
+(add 2 3)
