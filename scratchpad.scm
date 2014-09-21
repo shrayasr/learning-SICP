@@ -168,3 +168,13 @@ square
   (try 1 x))
 
 (sqrt 2)
+
+(min 1 2 3)
+
+(define (sum-of-squares-of-largest a b c) 
+  (define (square x)
+    (* x x))
+  (- (+ (square a) (square b) (square c)) (square (min a b c))))
+
+(sum-of-squares-of-largest 1 2 3)
+
