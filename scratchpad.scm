@@ -1,3 +1,6 @@
+(RESTART 1)
+; For interpreter sake
+
 (define x 2)
 (+ x 2)
 
@@ -100,3 +103,8 @@
 
 (define add +)
 (add 2 3)
+
+(define square (lambda (x) (* x x)))
+(square 2)
+square
++
